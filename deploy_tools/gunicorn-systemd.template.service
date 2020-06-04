@@ -1,0 +1,11 @@
+[Unit]
+Description=Description=Gunicorn server for 123.56.240.164
+
+[Service]
+Restart=on-failure
+User=root
+WorkingDirectory=/root/sites/123.56.240.164/source
+ExecStart=/root/sites/123.56.240.164/virtualenv/bin/gunicorn --bind unix:/tmp/123.56.240.164.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
